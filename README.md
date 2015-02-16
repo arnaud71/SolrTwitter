@@ -1,4 +1,4 @@
-# SolrTwitter
+# solr-twitter
 
 solr twitter framework
 
@@ -11,11 +11,11 @@ solr twitter framework
 This module is installed via npm:
 
 ``` bash
-$ npm install solrtwitter
+$ npm install solr-twitter
 ```
 
 ## Example Usage
 
 ``` js
-var SolrTwitter = require('solrtwitter');
+var SolrTwitter = require('solr-twitter');
 ```
