@@ -1,3 +1,4 @@
+before_script: curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=4.10.3 bash
 language: node_js
 node_js:
   - "0.10"
