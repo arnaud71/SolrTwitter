@@ -1,0 +1,158 @@
+{
+  "created_at":                                   "created_at_dt",
+  "id":                                           "id",
+  "id_str":                                       "id_str_s",
+  "text":                                         "text_t",
+  "source":                                       "source_t",
+  "truncated":                                    "truncated_b",
+  "in_reply_to_status_id":                        "in_reply_to_status_id_s",
+  "in_reply_to_status_id_str":                    "in_reply_to_status_id_str_s",
+  "in_reply_to_user_id":                          "in_reply_to_user_id_s",
+  "in_reply_to_user_id_str":                      "in_reply_to_user_id_str_s",
+  "in_reply_to_screen_name":                      "in_reply_to_screen_name_s",
+  "user" : {
+    "id":                                           "user_id_s",
+    "id_str":                                       "user_str_s",
+    "screen_name":                                  "user_screen_name_t",
+    "location":                                     "user_location_t",
+    "url":                                          "user_url_t",
+    "description":                                  "user_description_t",
+    "protected":                                    "user_protected_b",
+    "verified":                                     "user_verified_b",
+    "followers_count":                              "user_followers_count_i",
+    "friends_count":                                "user_friends_count_i",
+    "listed_count":                                 "user_listed_count_i",
+    "favourites_count":                             "user_favourites_count_i",
+    "statuses_count":                               "user_statuses_count_i",
+    "created_at":                                   "user_created_at_dt",
+    "utc_offset":                                   "user_utc_offset_dt",
+    "time_zone":                                    "user_time_zone_t",
+    "geo_enabled":                                  "user_geo_enabled_b",
+    "lang":                                         "user_lang_s",
+    "contributors_enabled":                         "user_contributors_enabled_b",
+    "is_translator":                                "user_is_translator_b",
+    "profile_background_color":                     "user_profile_background_color_t",
+    "profile_background_image_url_https":           "user_profile_background_image_url_https_t",
+    "profile_background_tile":                      "user_profile_background_tile_b",
+    "profile_link_color":                           "user_profile_link_color_s",
+    "profile_sidebar_border_color":                 "user_profile_sidebar_border_color_s",
+    "profile_sidebar_fill_color":                   "user_profile_sidebar_fill_color_s",
+    "profile_text_color":                           "user_profile_text_color_s",
+    "profile_use_background_image":                 "user_profile_use_background_image_b",
+    "profile_image_url":                            "user_profile_image_url_t",
+    "profile_image_url_https":                      "user_profile_image_url_https_t",
+    "profile_banner_url":                           "user_profile_banner_url_t",
+    "default_profile":                              "user_default_profile_b",
+    "default_profile_image":                        "user_default_profile_image_b",
+    "following":                                    "user_following_b",
+    "follow_request_sent":                          "user_follow_request_sent_b",
+    "notifications":                                "user_notifications_b"
+  },
+  "geo" :{
+    "coordinates" :                                 "geo_coordinates_p",
+    "type":                                         "geo_type_s"
+  },
+
+  "coordinates" : {
+    "coordinates" :                                 "coordinates_coordinates_p",
+    "type":                                         "coordinates_type_s"
+  },
+  "place" : {
+    "id" :                                          "place_id_s",
+    "url" :                                         "place_url_t",
+    "place_type" :                                  "place_type_s",
+    "name" :                                        "place_name_t",
+    "full_name" :                                   "place_full_name_t",
+    "country_code":                                 "place_country_code_s",
+    "country" :                                     "place_country_s",
+    "bounding_box": {
+      "type":                                         "place_bounding_box_type_s",
+      "coordinates":                                  "place_bounding_box_coordinates_s"
+    },
+    "attributes" :                                  "place_attributes_s"
+  },
+
+  "contributors" : {
+    "id" :                                          "contributors_id_ss",
+    "id_str" :                                      "contributors_id_str_ss",
+    "screen_name" :                                 "contributors_screen_name_ss"
+  },
+  "retweeted_status" : {
+    "created_at":                                   "retweeted_status_created_at_dt",
+    "id":                                           "retweeted_status_id_s",
+    "id_str":                                       "retweeted_status_id_str_s",
+    "text":                                         "retweeted_status_text_t",
+    "source":                                       "retweeted_status_source_t",
+    "truncated":                                    "retweeted_status_truncated_b",
+    "in_reply_to_status_id":                        "retweeted_status_in_reply_to_status_id_s",
+    "in_reply_to_status_id_str":                    "retweeted_status_in_reply_to_status_id_str_s",
+    "in_reply_to_user_id":                          "retweeted_status_in_reply_to_user_id_s",
+    "in_reply_to_user_id_str":                      "retweeted_status_in_reply_to_user_id_str_s",
+    "in_reply_to_screen_name":                      "retweeted_status_in_reply_to_screen_name_s",
+    "user":                                         "retweeted_status_user_s",
+    "geo" :{
+      "coordinates" :                                 "retweeted_status_geo_coordinates_p",
+      "type":                                         "retweeted_status_geo_type_s"
+    },
+
+    "coordinates" : {
+      "coordinates" :                                 "retweeted_status_coordinates_coordinates_p",
+      "type":                                         "retweeted_status_coordinates_type_s"
+    },
+    "place" : {
+      "id" :                                          "retweeted_status_place_id_s",
+      "url" :                                         "retweeted_status_place_url_t",
+      "place_type" :                                  "retweeted_status_place_type_s",
+      "name" :                                        "retweeted_status_place_name_t",
+      "full_name" :                                   "retweeted_status_place_full_name_t",
+      "country_code":                                 "retweeted_status_place_country_code_s",
+      "country" :                                     "retweeted_status_place_country_s",
+      "bounding_box": {
+        "type":                                         "retweeted_status_place_bounding_box_type_s",
+        "coordinates":                                  "retweeted_status_place_bounding_box_coordinates_s"
+      },
+      "attributes" :                                  "retweeted_status_place_attributes_s"
+    },
+
+    "contributors":                                   "retweeted_status_contributors_s",
+    "retweet_count":                                  "retweeted_status_retweet_count_i",
+    "favorite_count":                                 "retweeted_status_favorite_count_i",
+    "entities":                                       "retweeted_status_entities_s",
+    "extended_entities":                              "retweeted_status_extended_entities_s",
+    "favorited":                                      "retweeted_status_favorited_b",
+    "retweeted":                                      "retweeted_status_retweeted_b",
+    "possibly_sensitive":                             "retweeted_status_possibly_sensitive_b",
+    "filter_level":                                   "retweeted_status_filter_level_s",
+    "lang":                                           "retweeted_status_lang_s"
+  },
+  "retweet_count" :                               "retweet_count_i",
+  "favorite_count" :                              "favorite_count_i",
+  "entities" : {
+    "hashtags" : {
+      "text" :                                        "entities_hashtags_ss",
+      "indices" :                                     "entities_hashtags_indices_is"
+    },
+    "trends" :                                        "entities_trends_ss",
+    "urls" : {
+      "indices" :                                     "entities_urls_indices_is",
+      "url" :                                         "entities_urls_url_t"
+    },
+    "user_mentions" : {
+      "id" :                                          "entities_user_mentions_id_ss",
+      "id_str" :                                      "entities_user_mentions_id_str_ss",
+      "screen_name" :                                 "entities_user_mentions_screen_name_ss",
+      "name" :                                        "entities_user_mentions_name_ts",
+      "indices" :                                     "entities_user_mentions_indices_is"
+    },
+    "symbols" : {
+      "text"    :                                     "entities_symbols_text",
+      "indices" :                                     "entities_symbols_indices"
+    }
+  },
+  "favorited" :                                   "favorited_b",
+  "retweeted" :                                   "retweeted_b",
+  "possibly_sensitive" :                          "possibly_sensitive_b",
+  "filter_level" :                                "filter_level_s",
+  "lang" :                                        "lang_s",
+  "timestamp_ms" :                                "timestamp_ms_s"
+}
