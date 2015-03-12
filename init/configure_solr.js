@@ -1,7 +1,8 @@
 var fs = require('fs');
 var cfg = require('./../conf/cfg.json');
 
-var fileSolrConf = cfg.solr_dir+'/example/solr/collection1/conf/solrconfig.xml';
+
+var fileSolrConf = cfg.solr_conf+'solrconfig.xml';
 
 fs.readFile(fileSolrConf,'utf-8' ,function (err, data) {
   if (err) throw err;
@@ -20,7 +21,7 @@ fs.readFile(fileSolrConf,'utf-8' ,function (err, data) {
 });
 
 
-var fileSchema = cfg.solr_dir+'/example/solr/collection1/conf/schema.xml';
+var fileSchema = cfg.solr_conf+'schema.xml';
 
 fs.readFile(fileSchema,'utf-8' ,function (err, data) {
   if (err) throw err;

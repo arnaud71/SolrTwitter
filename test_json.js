@@ -1,7 +1,5 @@
 var to_solr = require('./field_tweet2solr.json');
 var tweets = require('./tweets_geneva.json');
-
-
 function process(o_key,o_value,p_value,params) {
   //console.log(o_key + " : "+o_value+ " ->"+p_value);
 
@@ -25,9 +23,9 @@ function traverse(o,p,params,func) {
   for (var i in o) {
     //if ((i==0)||(i == 'media')) {break};
     if (i == 0) {
-     //console.log('coordinates break');
-     break;
-     };
+      //console.log('coordinates break');
+      break;
+    };
 
     if (p[i] === undefined ||p[i] == null) {
       //console.log('undifined continue');
