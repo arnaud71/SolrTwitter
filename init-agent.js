@@ -1,11 +1,11 @@
 var solr  = require('solr-client');
 var cfg = require('./conf/cfg.json');
 var agent1 = require('./agents/agent-geneva.json');
-var agent2 = require('./agents/agent-pg.json');
+//var agent2 = require('./agents/agent-pg.json');
 
 
 // Create a client
-var clientSolr = solr.createClient(cfg.solr_host,cfg.solr_port);
+var clientSolr = solr.createClient(cfg.solr_host,cfg.solr_port,cfg.solr_core);
 
 // do a soft commit, must be set in solr config
 clientSolr.softCommit(function(err,res){
@@ -15,7 +15,7 @@ clientSolr.softCommit(function(err,res){
   }else{
     console.log(res);
     addTwitterAgent(agent1,clientSolr);
-    addTwitterAgent(agent2,clientSolr);
+    //addTwitterAgent(agent2,clientSolr);
   }
 });
 

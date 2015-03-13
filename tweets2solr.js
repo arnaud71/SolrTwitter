@@ -56,7 +56,7 @@ function traverse(o,p,params,func) {
 
 // Create a client
 log.info('Create a solr client at '+cfg.solr_host+':'+cfg.solr_port);
-var clientSolr = solr.createClient(cfg.solr_host,cfg.solr_port);
+var clientSolr = solr.createClient(cfg.solr_host,cfg.solr_port,cfg.solr_core);
 
 
 

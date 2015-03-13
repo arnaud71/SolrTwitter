@@ -2,7 +2,8 @@
   "keep_source" : true,
   "max_agents"  : 1000,
 
-  "solr_conf"     : "/opt/solr/twitter/solr-5.0.0/server/solr/configsets/basic_configs/conf/",
+  "solr_conf"   : "/opt/solr/twitter/solr-5.0.0/server/solr/configsets/basic_configs/conf/",
   "solr_host"   : "localhost",
-  "solr_port"   : "8983"
+  "solr_port"   : "8983",
+  "solr_core"   : "twitter"
 }
