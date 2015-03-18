@@ -48,8 +48,14 @@
     "follow_request_sent":                          "user_follow_request_sent_b",
     "notifications":                                "user_notifications_b"
   },
-  "geo" :                                           "geo_s",
-  "coordinates" :                                   "coordinates_s",
+  "geo": {
+    "type":                                         "geo_type_s",
+    "coordinates":                                  "geo_s"
+  },
+  "coordinates" :{
+    "type":                                         "geo_type_s",
+    "coordinates":                                  "coordinates_s"
+  },
   "place" : {
     "id" :                                          "place_id_s",
     "url" :                                         "place_url_t",

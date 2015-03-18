@@ -8,9 +8,9 @@ var to_solr = require('./field_tweet2solr.json');
 var log = bunyan.createLogger({name: 'tweets2solr'});
 
 function process(o_key,o_value,p_value,params) {
-  //console.log(o_key + " : "+o_value+ " ->"+p_value);
 
-  if (o_value) {
+
+  if (o_value !== undefined) {
     if (p_value.search(/_dt$/) != -1) {
       var date = new Date(o_value);
       o_value = date.toISOString();
@@ -18,30 +18,41 @@ function process(o_key,o_value,p_value,params) {
     else if (p_value.search(/_p$/) != -1) {
       o_value = o_value[0]+','+o_value[1];
     }
-    else if (p_value.search(/coordinates_s$/) != -1) {
-      o_value = JSON.stringify(o_value);
+    else if (p_value.search(/^(coordinates_s|geo_s)$/) != -1) {
+
+      o_value = o_value[0]+','+o_value[1];
+      console.log(p_value+" =!! "+o_value);
+      //o_value = JSON.stringify(o_value);
+
     }
-    //console.log(p_value+" = "+o_value);
+    else if (p_value.search(/_(coordinates_s)$/) != -1) {
+
+      //o_value = o_value[0]+','+o_value[1];
+      o_value = JSON.stringify(o_value);
+      //console.log("add: p:'"+p_value+"' o:'"+o_value);
+
+    }
     params[p_value] = o_value;
+
   }
+
 }
 
 function traverse(o,p,params,func) {
   for (var i in o) {
-    //if ((i==0)||(i == 'media')) {break};
+    //console.log("traverse:  o_i:"+o[i] + " i:"+i+ " ->p_i:"+p[i]);
     if (i == 0) {
       //console.log('coordinates break');
       break;
     };
 
     if (p[i] === undefined ||p[i] == null) {
-      //console.log('undifined continue');
+      //console.log('undefined continue');
       continue;
     };   // complete the field_tweet2solr.json if needed
 
-    //console.log("traverse:  o_i:"+o[i] + " i:"+i+ " ->p_i:"+p[i]);
-    if ((typeof(p[i])!="object")&& (typeof(o[i])!="object"||(p[i].search(/_coordinates_(s|p)$/) != -1)) && o[i]!=null) {
-      //console.log('apply');
+
+    if ((typeof(p[i])!="object")&& (typeof(o[i])!="object"||(p[i].search(/(coordinates|geo)_(s|p)$/) != -1)) && o[i]!=null) {
       func.apply(this, [i, o[i], p[i], params]);
     }
 
@@ -50,15 +61,11 @@ function traverse(o,p,params,func) {
       traverse(o[i],p[i],params,func);
     }
   }
-
 }
-
 
 // Create a client
 log.info('Create a solr client at '+cfg.solr_host+':'+cfg.solr_port);
 var clientSolr = solr.createClient(cfg.solr_host,cfg.solr_port,cfg.solr_core);
-
-
 
 var getTwitterAgent = function (err,res) {
   if(err){
