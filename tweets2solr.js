@@ -21,7 +21,7 @@ function process(o_key,o_value,p_value,params) {
     else if (p_value.search(/^(coordinates_s|geo_s)$/) != -1) {
 
       o_value = o_value[0]+','+o_value[1];
-      console.log(p_value+" =!! "+o_value);
+      //console.log(p_value+" =!! "+o_value);
       //o_value = JSON.stringify(o_value);
 
     }

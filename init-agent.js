@@ -33,13 +33,14 @@ function addTwitterAgent (agent,clientSolr) {
 
   clientSolr.add({
 
-    type_s                : agent.type,                   // agent type (here twitter), main type of db
-
-    id                    : agent.type+'_'+agent.name,    // id of the agent
+    type_s                : 'twitter_agent',              // agent type (here twitter), main type of db
+    type_doc_s            : agent.type_doc,
+    type_filter_s         : agent.type_filter,
+    type_api_s            : agent.type_api,
+    id                    : agent.type_doc+'_'+agent.type_filter+'_'+agent.type_api+'_'+agent.name,  // id of the agent
     name_s                : agent.name,                   // name of the agent
     filter_t              : JSON.stringify(agent.filter), // string of filter type and content
     filter_type_ss        : filter_types,                 // tab of filter types (locations, tracks, follower,lang)
-
     stream_s              : agent.stream,                 // twitter stream type (firehose, filter, sample)
     consumer_key_s        : agent.consumer_key,           // consumer_key
     consumer_secret_s     : agent.consumer_secret,        // consumer_secret
