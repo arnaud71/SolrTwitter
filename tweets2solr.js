@@ -91,9 +91,11 @@ var writeStreamToSolr = function(stream,agent) {
     var params = {};
 
     // main type of db
-    params['type_s'] = 'twitter';
+    params['type_s'] = agent.type_doc_s;
     // added extra information from agent
-    params['extra_agent_s']         = agent.name_s;
+    params['extra_filter_s']        = agent.type_filter_s;
+    params['extra_api_s']           = agent.type_api_s;
+    params['extra_agent_id_s']      = agent.id;
     params['extra_filter_type_ss']  = agent.filter_type_ss;
     params['extra_filter_t']        = agent.filter_t;
     params['extra_stream_s']        = agent.stream_s;
@@ -103,6 +105,8 @@ var writeStreamToSolr = function(stream,agent) {
       params['extra_source'] = JSON.stringify(tweet);
     }
     traverse(tweet,to_solr,params,process);
+
+    params['id'] = params['id']+'_'+agent.id;
 
     log.info('tweet converted: '+params.text_t+' at'+params.created_at_dt+' for '+params.extra_agent_s);
 

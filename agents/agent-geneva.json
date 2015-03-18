@@ -1,6 +1,6 @@
 {
   "type_doc"            : "twitter",
-  "type_filter"         : "geo",
+  "type_filter"         : "locations",
   "type_api"            : "stream",
   "name"                : "big geneva",
   "filter"              : {
