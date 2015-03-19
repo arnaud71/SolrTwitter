@@ -33,6 +33,12 @@ function process(o_key,o_value,p_value,params) {
 
     }
     params[p_value] = o_value;
+    if (p_value == 'geo_s') {
+      params['geo_p'] = o_value;
+    }
+    if (p_value == 'coordinates_s') {
+      params['coordinates_p'] = o_value;
+    }
 
   }
 
