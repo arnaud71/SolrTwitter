@@ -14,8 +14,9 @@ function process(o_key,o_value,p_value,params) {
     }
     else if (p_value.search(/^(coordinates_s|geo_s)$/) != -1) {
 
-      //o_value = o_value[0]+','+o_value[1];
+      o_value = o_value[0]+','+o_value[1];
       //console.log(p_value+" =!! "+o_value);
+      //o_value = JSON.stringify(o_value);
 
     }
     else if (p_value.search(/_(coordinates_s)$/) != -1) {
@@ -26,6 +27,12 @@ function process(o_key,o_value,p_value,params) {
 
     }
     params[p_value] = o_value;
+    if (p_value == 'geo_s') {
+      params['geo_p'] = o_value;
+    }
+    if (p_value == 'coordinates_s') {
+      params['coordinates_p'] = o_value;
+    }
 
   }
 
