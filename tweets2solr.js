@@ -7,8 +7,7 @@ var to_solr = require('./field_tweet2solr.json');
 
 var log = bunyan.createLogger({name: 'tweets2solr'});
 
-function process(o_key,o_value,p_value,params) {
-
+function process(o_key,o_value,p_value,params,tweet) {
 
   if (o_value !== undefined) {
     if (p_value.search(/_dt$/) != -1) {
@@ -32,20 +31,35 @@ function process(o_key,o_value,p_value,params) {
       //console.log("add: p:'"+p_value+"' o:'"+o_value);
 
     }
+    // default
     params[p_value] = o_value;
+
     if (p_value == 'geo_s') {
       params['geo_p'] = o_value;
     }
-    if (p_value == 'coordinates_s') {
+    else if (p_value == 'coordinates_s') {
       params['coordinates_p'] = o_value;
     }
-
+    else if (p_value == 'text_t') {
+      //console.log(tweet);return;
+      var lang = tweet.lang;
+      if (lang == 'und') {
+        // to do something?? else still on text_t
+      }
+      else {
+        // to verify for dynamic fields which don't exist ???
+        params['text_txt_'+lang] = o_value;
+      }
+    }
   }
 
 }
 
-function traverse(o,p,params,func) {
+function traverse(o,p,params,func,tweet) {
+
+
   for (var i in o) {
+
     //console.log("traverse:  o_i:"+o[i] + " i:"+i+ " ->p_i:"+p[i]);
     if (i == 0) {
       //console.log('coordinates break');
@@ -59,12 +73,12 @@ function traverse(o,p,params,func) {
 
 
     if ((typeof(p[i])!="object")&& (typeof(o[i])!="object"||(p[i].search(/(coordinates|geo)_(s|p)$/) != -1)) && o[i]!=null) {
-      func.apply(this, [i, o[i], p[i], params]);
+      func.apply(this, [i, o[i], p[i], params,tweet]);
     }
 
     if (o[i] !== null && typeof(o[i])=="object") {
       //going on step down in the object tree!!
-      traverse(o[i],p[i],params,func);
+      traverse(o[i],p[i],params,func,tweet);
     }
   }
 }
@@ -110,7 +124,7 @@ var writeStreamToSolr = function(stream,agent) {
     if (cfg.keep_source) {
       params['extra_source'] = JSON.stringify(tweet);
     }
-    traverse(tweet,to_solr,params,process);
+    traverse(tweet,to_solr,params,process,tweet);
 
     params['id'] = params['id']+'_'+agent.id;
 

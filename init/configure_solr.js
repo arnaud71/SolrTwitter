@@ -9,7 +9,7 @@ fs.readFile(fileSolrConf,'utf-8' ,function (err, data) {
 
   // set autoSoftCommit mode
   console.log('set autoSoftCommit mode in '+fileSolrConf);
-  data = data.replace('<maxTime>${solr.autoSoftCommit.maxTime:-1}</maxTime>','<maxTime>${solr.autoSoftCommit.maxTime:1}</maxTime>');
+  data = data.replace('</autoCommit>','</autoCommit>\n<autoSoftCommit><maxTime>3</maxTime></autoSoftCommit>');
 
   fs.writeFile(fileSolrConf, data, function(err) {
     if(err) {
@@ -21,7 +21,7 @@ fs.readFile(fileSolrConf,'utf-8' ,function (err, data) {
 });
 
 
-var fileSchema = cfg.solr_conf+'schema.xml';
+var fileSchema = cfg.solr_conf+'managed-schema';
 
 fs.readFile(fileSchema,'utf-8' ,function (err, data) {
   if (err) throw err;
