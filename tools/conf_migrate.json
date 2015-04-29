@@ -1,0 +1,13 @@
+{
+  "from_host" : "195.176.237.198",
+  "from_port" : "8968",
+  "from_core" : "geotweet",
+  "to_host"   : "195.176.237.198",
+  "to_port"   : "8997",
+  "to_core"   : "geotweet",
+  "query"     : "*:*",
+  "start"     : 0,
+  "rows"      : 100
+}
+
+
