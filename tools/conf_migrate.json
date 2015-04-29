@@ -7,7 +7,7 @@
   "to_core"   : "geotweet",
   "query"     : "*:*",
   "start"     : 0,
-  "rows"      : 100
+  "rows"      : 10000
 }
 
 

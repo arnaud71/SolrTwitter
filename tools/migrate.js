@@ -21,7 +21,8 @@ var searchAll = function() {
   var query = solrFrom.createQuery()
     .q('*:*')
     .start(start)
-    .rows(rows);
+    .rows(rows)
+    .sort('created_at_dt asc');
 
 
   log.info("Querying starting at " + start);
