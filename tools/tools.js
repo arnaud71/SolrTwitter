@@ -12,7 +12,7 @@ var cfg = require(process.argv[2]);
 
 var start = cfg.start;
 var rows  = cfg.rows;
-var limit = 10;
+var limit = 1000;
 var count = 0;
 
 
@@ -36,27 +36,36 @@ var searchAll = function() {
 
 // DixMax query
 
+//  var query = solrFrom.createQuery()
+//    .q(cfg.query)
+//    .start(start)
+//    .rows(rows)
+//    .sort("created_at_dt asc");
+
+
+
+
   var query = solrFrom.createQuery()
-    .q('*:*')
+    .q(cfg.query)
+    .sort(cfg.sort)
     .start(start)
-    .rows(rows)
-    .sort(cfg.sort);
+    .rows(rows);
 
-
-  log.info("Querying starting at " + start);
+  log.info("Querying starting at " + start + " for " + rows + "rows");
   solrFrom.search(query, function (err, obj) {
     if (err) {
       log.info(err);
     } else {
-      //console.log(obj);
+      //console.log(obj);return;
       var res = obj.response;
-      //console.log(res);return;
+
       start += rows;
       limit -= rows;
       processRes(res);
+      //return;
       //if (limit<1) { return};
 
-      if ((res.numFound <= start) || (count+1>rows)) {
+      if ((res.numFound <= start)) {
         return;
       }
       else {

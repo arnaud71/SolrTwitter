@@ -2,10 +2,11 @@
   "from_host" : "195.176.237.198",
   "from_port" : "8968",
   "from_core" : "geotweet",
-  "query"     : "*:*",
+  "query"     : "plainpalais",
   "mode"      : "backup",
+  "sort"      : {"created_at_dt": "asc"},
   "start"     : 0,
-  "rows"      : 10000
+  "rows"      : 1
 }
 
 
