@@ -1,0 +1,11 @@
+{
+  "from_host" : "195.176.237.198",
+  "from_port" : "8968",
+  "from_core" : "geotweet",
+  "query"     : "*:*",
+  "mode"      : "backup",
+  "start"     : 0,
+  "rows"      : 10000
+}
+
+

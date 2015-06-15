@@ -5,9 +5,11 @@
   "to_host"   : "195.176.237.198",
   "to_port"   : "8997",
   "to_core"   : "geotweet",
+  "mode"      : "migrate",
   "query"     : "*:*",
   "start"     : 0,
-  "rows"      : 10000
+  "rows"      : 10000,
+  "sort"      : "created_at_dt asc"
 }
 
 
